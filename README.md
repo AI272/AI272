@@ -16,6 +16,8 @@ You can click the Preview link to take a look at your changes.
 ——————————————————————————————————————————————
 test：
 
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pymc as pm
@@ -54,7 +56,7 @@ def plot_results(X, y_true, y_observed, trace):
     plt.legend()
     plt.show()
 
-# 运行流程
+# workflow
 X, y_true, y_observed = generate_data()
 trace = bayesian_inference(X, y_observed)
 plot_results(X, y_true, y_observed, trace)
