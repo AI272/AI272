@@ -1,62 +1,35 @@
-- 👋 Hi, I’m @AI272
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+# 👋 Hi there, I’m @AI272 / 你好，我是 @AI272
 
-<!---
-AI272/AI272 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+**｜工科硕士在读 (Engineering Master's Student)｜绝对浪费token之人 (Absolute Token Waster)｜cv最好使用者 (Master of Ctrl+C & Ctrl+V)｜**
 
+---
 
+### 🚀 About Me | 关于我
 
-——————————————————————————————————————————————
-test：
+- 👀 **I’m interested in...** 
+  Machine Learning, Spatiotemporal Modeling, Computational Epidemiology, and Bayesian Inference (Yes, I love `PyMC` and probabilistic programming!).
+  **我感兴趣的是...** 机器学习、时空建模、计算流行病学以及贝叶斯推断（是的，我经常与 `PyMC` 和概率编程打交道！）。
 
+- 🌱 **I’m currently learning/working on...** 
+  Constrained Reinforcement Learning (like Lagrangian PPO), spatial data visualization, and keeping my Docker environments from crashing.
+  **我目前正在学习/研究...** 约束强化学习（比如拉格朗日PPO算法）、空间数据可视化，以及努力不让我的 Docker 环境崩溃。
 
+- 💞️ **I’m looking to collaborate on...** 
+  Data-driven AI models, epidemiological simulations, or analyzing the psychological design of tactical shooter game algorithms!
+  **我希望能在以下方面合作...** 数据驱动的 AI 模型开发、流行病学模拟分析，或者一起探讨战术射击游戏的算法设计心理学！
 
-import numpy as np
-import matplotlib.pyplot as plt
-import pymc as pm
-import arviz as az
+- 📫 **How to reach me...** 
+  Feel free to open an issue or drop a comment in my repositories. 
+  **如何联系我...** 欢迎在我的代码仓库里提交 Issue 或留言交流。
 
-def generate_data():
-    np.random.seed(42)
-    X = np.linspace(-5, 5, 50)
-    y_true = 3 * X + 2
-    y_observed = y_true + np.random.normal(0, 4, size=X.shape)
-    return X, y_true, y_observed
+- ⚡ **Fun fact...** 
+  When I'm not debugging Python or tweaking LaTeX/QGIS figures, I'm probably collecting Kamen Rider and Sanrio merchandise, or taking a break at a hot spring.
+  **趣味小知识...** 当我不在 debug Python 或是死磕 LaTeX/QGIS 画图时，我大概率在收集假面骑士和三丽鸥的周边，或者在泡温泉放松。
 
-def bayesian_inference(X, y_observed):
-    with pm.Model() as model:
-        w0 = pm.Normal("w0", mu=0, sigma=1)
-        w1 = pm.Normal("w1", mu=0, sigma=1)
-        y_pred = w1 * X + w0
-        y_obs = pm.Normal("y_obs", mu=y_pred, sigma=4, observed=y_observed)
-        trace = pm.sample(2000, return_inferencedata=False, tune=1000)
-    return trace
+---
 
-def plot_results(X, y_true, y_observed, trace):
-    w0_samples = trace["w0"]
-    w1_samples = trace["w1"]
-    y_pred_samples = np.array([w1_samples[i] * X + w0_samples[i] for i in range(len(w0_samples))])
-    y_pred_mean = y_pred_samples.mean(axis=0)
-    y_pred_lower = np.percentile(y_pred_samples, 2.5, axis=0)
-    y_pred_upper = np.percentile(y_pred_samples, 97.5, axis=0)
+### 🛠️ Tech Stack & Tools | 技术栈与工具
 
-    plt.scatter(X, y_observed, label="Observed data")
-    plt.plot(X, y_true, label="True relationship", color="orange")
-    plt.plot(X, y_pred_mean, label="Predicted Mean", color="blue")
-    plt.fill_between(X, y_pred_lower, y_pred_upper, color="blue", alpha=0.2, label="95% CI")
-    plt.xlabel("X")
-    plt.ylabel("y")
-    plt.legend()
-    plt.show()
-
-# workflow
-X, y_true, y_observed = generate_data()
-trace = bayesian_inference(X, y_observed)
-plot_results(X, y_true, y_observed, trace)
+- **Languages:** Python, LaTeX
+- **Modeling & AI:** PyMC, Reinforcement Learning, Spatiotemporal CA models
+- **Tools:** Docker, VS Code Remote-SSH, QGIS, Git
